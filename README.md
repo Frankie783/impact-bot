@@ -21,3 +21,12 @@ sustainability KPIs, and exposes them at `/v1/latest` for your Shopify theme.
 npm install
 M2F_KEY=your_key_here node server.js
 ```
+
+## End-points added
+
+| Route          | Method | Description                                     |
+|----------------|--------|-------------------------------------------------|
+| /v1/latest     | GET    | Returns cached data. Use `?refresh=true` to force live update. |
+| /v1/refresh    | GET    | Always fetches from Made2Flow first, then returns data. |
+
+The cache survives restarts as long as the service stays up; on first request after a restart it self‑refreshes.
